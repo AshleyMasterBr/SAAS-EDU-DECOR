@@ -116,6 +116,12 @@
             align-items: center;
             gap: 6px;
             white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .btn-zap-header:hover {
+            transform: scale(1.05);
+            background: #1eb956;
         }
 
         /* --- HERO SECTION --- */
@@ -417,6 +423,15 @@
             opacity: 0.8;
         }
 
+        .btn-footer-zap {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         /* --- MOBILE AJUSTES --- */
         @media (max-width: 480px) {
             .container {
@@ -468,6 +483,9 @@
                 <img src="logo.png" alt="Logo Edu Decor" onerror="this.style.display='none'">
                 <div>EDU <span style="color: var(--primary);">DECOR</span></div>
             </div>
+            <a href="https://wa.me/5511939513549?text=Olá! Vim pelo site e gostaria de um orçamento." target="_blank" class="btn-zap-header">
+                <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+            </a>
         </div>
     </header>
 
@@ -549,6 +567,11 @@
                 <img src="logo.png" alt="Logo Edu Decor" onerror="this.style.display='none'">
                 <div>EDU <span style="color: var(--primary);">DECOR</span></div>
             </div>
+            
+            <a href="https://wa.me/5511939513549" target="_blank" class="btn-footer-zap">
+                <i class="fab fa-whatsapp"></i> (11) 93951-3549
+            </a>
+
             <div class="footer-text">
                 &copy; Todos os direitos reservados. <span style="margin: 0 5px; opacity: 0.3;">|</span> Desenvolvido
                 por Legado Performance
@@ -583,6 +606,10 @@
                 </div>
             </div>
 
+            <a href="#" id="whatsappModalLink" target="_blank" class="btn-action">
+                <i class="fab fa-whatsapp"></i> GARANTIR ESSA OFERTA
+            </a>
+
             <p class="disclaimer">
                 *Valor estimado. Visita técnica necessária para validar.
             </p>
@@ -608,6 +635,10 @@
 
             const valorFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             document.getElementById('valorFinal').innerText = valorFormatado;
+
+            // Atualiza o link do WhatsApp no modal com os dados do orçamento
+            const msg = encodeURIComponent(`Olá! Fiz um orçamento no site e deu aproximadamente ${valorFormatado} para ${metragem}m² de ${modeloNome}. Gostaria de agendar uma visita técnica.`);
+            document.getElementById('whatsappModalLink').href = `https://wa.me/5511939513549?text=${msg}`;
 
             document.getElementById('modalResult').style.display = 'flex';
 
